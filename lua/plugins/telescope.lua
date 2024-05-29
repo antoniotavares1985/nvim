@@ -3,8 +3,10 @@ return {
     dependencies = { 
       'nvim-lua/plenary.nvim',
     },
-    keys = {
-        { '<leader>ff', "<cmd>Telescope find_files<cr>", desc = "[F]ind [F]iles"},
-        { '<leader>fg', "<cmd>Telescope live_grep<cr>", desc = "[F]ind [G]rep"},
-    },
+    default = {
+	mappings = {
+	  ["<leader>gs"] = "git_status"
+	}
+    }
 }
+
