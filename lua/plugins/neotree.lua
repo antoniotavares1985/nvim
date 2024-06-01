@@ -10,13 +10,10 @@ return {
 		close_if_last_window = true,
 		hijack_netrw_behavior = "open_current",
 		window = {
-			position = "right"
-		},
-		window = {
 			position = "right",
 			mapping_options = {
 				noremap = true,
-				nowait = true,
+				nowait = false,
 			},
 		}
 	}
