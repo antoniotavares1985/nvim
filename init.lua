@@ -22,32 +22,3 @@ vim.keymap.set("n", "<leader>h", function() harpoon.ui:toggle_quick_menu(harpoon
 vim.keymap.set("n", "<leader>hp", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<leader>hn", function() harpoon:list():next() end)
 
--- lspconfig
-require("mason").setup()
-require("mason-lspconfig").setup()
-
-require'lspconfig'.lua_ls.setup{
-	settings = {
-		Lua = {
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				globals = {'vim'},
-			},
-		},
-	},
-}
-require'lspconfig'.omnisharp.setup{}
-require'lspconfig'.tsserver.setup{}
-
--- linters
-local null_ls = require("null-ls")
-
-null_ls.setup({
-    sources = {
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.csharpier,
-        null_ls.builtins.diagnostics.eslint,
-        null_ls.builtins.completion.spell,
-    },
-})
-

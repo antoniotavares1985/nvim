@@ -1,5 +1,6 @@
 return {
-	"williamboman/mason.nvim",
-	"williamboman/mason-lspconfig.nvim",
-	"neovim/nvim-lspconfig",
+	"ctrlpvim/ctrlp.vim",
+	"nickspoons/vim-sharpenup",
+	"OmniSharp/Omnisharp-vim",
+	"Hoffs/omnisharp-extended-lsp.nvim",
 }

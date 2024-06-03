@@ -17,3 +17,4 @@ vim.api.nvim_create_autocmd("VimResized", {
         vim.cmd("tabdo wincmd =")
     end,
 })
+
