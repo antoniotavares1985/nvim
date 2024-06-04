@@ -122,7 +122,7 @@ return {
 				-- tsserver = {},
 				omnisharp = {
 					settings = {
-						Lua = {
+						omnisharp = {
 							completion = {
 								callSnippet = "csharpier",
 							},
@@ -182,7 +182,7 @@ return {
 		lazy = false,
 		keys = {
 			{
-				"<leader>f",
+				"<leader>i",
 				function()
 					require("conform").format({ async = true, lsp_fallback = true })
 				end,
