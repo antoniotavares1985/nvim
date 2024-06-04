@@ -35,3 +35,17 @@ end)
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[F]ind [G]rep string" })
+
+-- Auto-Session
+require("auto-session").setup({
+	log_level = "error",
+	auto_session_enable_last_session = false,
+	auto_restore_enabled = false,
+	session_lens = {
+		load_on_setup = true,
+		previewer = false,
+	},
+})
+vim.keymap.set("n", "<C-s>", require("auto-session.session-lens").search_session, {
+	noremap = true,
+})

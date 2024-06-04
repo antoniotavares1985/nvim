@@ -16,6 +16,7 @@ vim.keymap.set("n", "<c-l>", "<c-w>lza")
 -- buffer navigation
 vim.keymap.set("n", "<c-n>", vim.cmd.bNext)
 vim.keymap.set("n", "<c-p>", vim.cmd.bprevious)
+vim.keymap.set("n", "<c-x>", vim.cmd.bdelete)
 
 -- cursor
 vim.keymap.set("n", "J", "mzJ`z")
@@ -25,9 +26,9 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- clipboard
-vim.keymap.set("x", "<leader>p", '"_dP')
-vim.keymap.set("v", "<leader>p", '"_dP')
-vim.keymap.set("n", "<leader>p", '"_dP')
+vim.keymap.set("x", "<leader>bp", '"_dP')
+vim.keymap.set("v", "<leader>bp", '"_dP')
+vim.keymap.set("n", "<leader>bp", '"_dP')
 
 vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>y", '"+y')
@@ -75,3 +76,6 @@ vim.keymap.set("t", "<leader><esc>", "<c-\\><c-n>", { desc = "Exit terminal mode
 vim.keymap.set("n", "<leader>term", "<cmd>terminal<cr>", { desc = "Open terminal mode" })
 vim.keymap.set("v", "<leader>term", "<cmd>terminal<cr>", { desc = "Open terminal mode" })
 vim.keymap.set("x", "<leader>term", "<cmd>terminal<cr>", { desc = "Open terminal mode" })
+
+-- Alpha
+vim.keymap.set("n", "<leader>;", ":Alpha<CR>", { desc = "Toggle Alpha", silent = true })
