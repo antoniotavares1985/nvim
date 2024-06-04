@@ -120,15 +120,6 @@ return {
 				--
 				-- But for many setups, the LSP (`tsserver`) will work just fine
 				-- tsserver = {},
-				omnisharp = {
-					settings = {
-						omnisharp = {
-							completion = {
-								callSnippet = "csharpier",
-							},
-						},
-					},
-				},
 
 				lua_ls = {
 					-- cmd = {...},
