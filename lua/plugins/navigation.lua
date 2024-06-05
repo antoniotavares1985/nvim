@@ -1,18 +1,18 @@
 return {
 	{
-		'phaazon/hop.nvim',
+		"phaazon/hop.nvim",
 		-- event = "VeryLazy",
-		branch = 'v2', -- optional but strongly recommended
+		branch = "v2", -- optional but strongly recommended
 		enabled = false,
 		-- lazy = false,
 		keys = {
-			{ "<leader>s",  ":HopChar2<cr>", "Hop Char2" },
-			{ "<leader>S",  ":HopWord<cr>",  "Hop Char2" },
-			{ "<leader>ls", ":HopLine<cr>",  "Hop Line" },
+			{ "<leader>s", ":HopChar2<cr>", "Hop Char2" },
+			{ "<leader>S", ":HopWord<cr>", "Hop Char2" },
+			{ "<leader>ls", ":HopLine<cr>", "Hop Line" },
 		},
 		opts = {
-			keys = 'etovxqpdygfblzhckisuran'
-		}
+			keys = "etovxqpdygfblzhckisuran",
+		},
 		-- config = function()
 		-- you can configure Hop the way you like here; see :h hop-config
 		-- require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
@@ -30,13 +30,13 @@ return {
 			modes = {
 				char = {
 					enabled = false,
-				}
-			}
+				},
+			},
 		},
 		-- stylua: ignore
 		keys = {
-			{ "<leader>s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-			{ "<leader>S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+			{ "f", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+			{ "F", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
 		},
-	}
+	},
 }
