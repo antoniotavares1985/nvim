@@ -31,11 +31,6 @@ vim.keymap.set("n", "<leader>hn", function()
 	harpoon:list():next()
 end)
 
--- Telescope
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[F]ind [G]rep string" })
-
 -- Auto-Session
 require("auto-session").setup({
 	log_level = "error",
