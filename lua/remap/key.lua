@@ -2,16 +2,15 @@ vim.g.mapleader = " "
 vim.wo.number = true
 vim.wo.relativenumber = true
 
-vim.keymap.set("n", "Q", "<cmd>qa<cr>")
-
 vim.keymap.set("n", "<leader>e", "<cmd>Neotree filesystem toggle<cr>")
+vim.keymap.set("n", "<leader>gs", "<cmd>Neotree git_status toggle<cr>")
 vim.keymap.set("n", "<leader>pm", vim.cmd.Lazy)
 
 -- window navigation
-vim.keymap.set("n", "<c-h>", "<c-w>hza")
-vim.keymap.set("n", "<c-j>", "<c-w>jza")
-vim.keymap.set("n", "<c-k>", "<c-w>kza")
-vim.keymap.set("n", "<c-l>", "<c-w>lza")
+vim.keymap.set("n", "<leader><left>", "<c-w>h")
+vim.keymap.set("n", "<leader><down>", "<c-w>j")
+vim.keymap.set("n", "<leader><up>", "<c-w>k")
+vim.keymap.set("n", "<leader><right>", "<c-w>l")
 vim.keymap.set("n", "<c-right>", [[<cmd>vertical resize +5<cr>]]) -- make the window biger vertically
 vim.keymap.set("n", "<c-left>", [[<cmd>vertical resize -5<cr>]]) -- make the window smaller vertically
 vim.keymap.set("n", "<c-up>", [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
@@ -28,6 +27,10 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "<c-h>", "35h")
+vim.keymap.set("n", "<c-j>", "15j")
+vim.keymap.set("n", "<c-k>", "15k")
+vim.keymap.set("n", "<c-l>", "35l")
 
 -- clipboard
 vim.keymap.set("x", "<leader>bp", '"_dP')
@@ -82,4 +85,4 @@ vim.keymap.set("v", "<leader>term", "<cmd>terminal<cr>", { desc = "Open terminal
 vim.keymap.set("x", "<leader>term", "<cmd>terminal<cr>", { desc = "Open terminal mode" })
 
 -- Alpha
-vim.keymap.set("n", "<leader>;", ":Alpha<CR>", { desc = "Toggle Alpha", silent = true })
+vim.keymap.set("n", "Q", ":Alpha<CR>", { desc = "Toggle Alpha", silent = true })

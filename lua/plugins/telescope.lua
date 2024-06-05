@@ -30,22 +30,6 @@ return {
 			desc = "[F]ind [B]uffers",
 		},
 		{
-			"<leader>gs",
-			mode = { "n", "x", "o" },
-			function()
-				require("telescope.builtin").git_status()
-			end,
-			desc = "[G]it [S]tatus",
-		},
-		{
-			"<leader>gc",
-			mode = { "n", "x", "o" },
-			function()
-				require("telescope.builtin").git_commits()
-			end,
-			desc = "[G]it [C]ommits",
-		},
-		{
 			"<leader>gb",
 			mode = { "n", "x", "o" },
 			function()
