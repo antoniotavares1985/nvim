@@ -11,15 +11,16 @@ vim.keymap.set("n", "<leader><left>", "<c-w>h", { desc = "Move to Left Window" }
 vim.keymap.set("n", "<leader><down>", "<c-w>j", { desc = "Move to Bottom Window" })
 vim.keymap.set("n", "<leader><up>", "<c-w>k", { desc = "Move to Top Window" })
 vim.keymap.set("n", "<leader><right>", "<c-w>l", { desc = "Move to Right Window" })
-vim.keymap.set("n", "<c-right>", [[<cmd>vertical resize +5<cr>]], { desc = "+ resize vertically" }) -- make the window biger vertically
-vim.keymap.set("n", "<c-left>", [[<cmd>vertical resize -5<cr>]], { desc = "- resize vertically" }) -- make the window smaller vertically
-vim.keymap.set("n", "<c-up>", [[<cmd>horizontal resize +2<cr>]], { desc = "+ resize horizontally" }) -- make the window bigger horizontally by pressing shift and =
-vim.keymap.set("n", "<c-down>", [[<cmd>horizontal resize -2<cr>]], { desc = "- resize horizontally" }) -- make the window smaller horizontally
+vim.keymap.set("n", "<c-right>", "<cmd>vertical resize +5<cr>", { desc = "+ resize vertically" }) -- make the window biger vertically
+vim.keymap.set("n", "<c-left>", "<cmd>vertical resize -5<cr>", { desc = "- resize vertically" }) -- make the window smaller vertically
+vim.keymap.set("n", "<c-up>", "<cmd>horizontal resize +2<cr>", { desc = "+ resize horizontally" }) -- make the window bigger horizontally by pressing shift and =
+vim.keymap.set("n", "<c-down>", "<cmd>horizontal resize -2<cr>", { desc = "- resize horizontally" }) -- make the window smaller horizontally
 
 -- buffer navigation
-vim.keymap.set("n", "<c-n>", vim.cmd.bNext, { desc = "Next Window" })
-vim.keymap.set("n", "<c-p>", vim.cmd.bprevious, { desc = "Previous Window" })
+vim.keymap.set("n", "<c-n>", vim.cmd.bNext, { desc = "[N]ext Window" })
+vim.keymap.set("n", "<c-p>", vim.cmd.bprevious, { desc = "[P]revious Window" })
 vim.keymap.set("n", "<c-x>", vim.cmd.bdelete, { desc = "Close Window" })
+vim.keymap.set("n", "<c-b>", vim.cmd.buffers, { desc = "Show currently opened [B]uffers" })
 
 -- cursor
 vim.keymap.set("n", "J", "mzJ`z")
