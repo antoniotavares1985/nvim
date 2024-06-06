@@ -2,24 +2,24 @@ vim.g.mapleader = " "
 vim.wo.number = true
 vim.wo.relativenumber = true
 
-vim.keymap.set("n", "<leader>e", "<cmd>Neotree filesystem toggle<cr>")
-vim.keymap.set("n", "<leader>gs", "<cmd>Neotree git_status toggle<cr>")
-vim.keymap.set("n", "<leader>pm", vim.cmd.Lazy)
+vim.keymap.set("n", "<leader>e", "<cmd>Neotree filesystem toggle<cr>", { desc = "[E]xplorer" })
+vim.keymap.set("n", "<leader>gs", "<cmd>Neotree git_status toggle<cr>", { desc = "[G]it [S]tatus" })
+vim.keymap.set("n", "<leader>pm", vim.cmd.Lazy, { desc = "[P]ackage [M]anager" })
 
 -- window navigation
-vim.keymap.set("n", "<leader><left>", "<c-w>h")
-vim.keymap.set("n", "<leader><down>", "<c-w>j")
-vim.keymap.set("n", "<leader><up>", "<c-w>k")
-vim.keymap.set("n", "<leader><right>", "<c-w>l")
-vim.keymap.set("n", "<c-right>", [[<cmd>vertical resize +5<cr>]]) -- make the window biger vertically
-vim.keymap.set("n", "<c-left>", [[<cmd>vertical resize -5<cr>]]) -- make the window smaller vertically
-vim.keymap.set("n", "<c-up>", [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
-vim.keymap.set("n", "<c-down>", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally
+vim.keymap.set("n", "<leader><left>", "<c-w>h", { desc = "Move to Left Window" })
+vim.keymap.set("n", "<leader><down>", "<c-w>j", { desc = "Move to Bottom Window" })
+vim.keymap.set("n", "<leader><up>", "<c-w>k", { desc = "Move to Top Window" })
+vim.keymap.set("n", "<leader><right>", "<c-w>l", { desc = "Move to Right Window" })
+vim.keymap.set("n", "<c-right>", [[<cmd>vertical resize +5<cr>]], { desc = "+ resize vertically" }) -- make the window biger vertically
+vim.keymap.set("n", "<c-left>", [[<cmd>vertical resize -5<cr>]], { desc = "- resize vertically" }) -- make the window smaller vertically
+vim.keymap.set("n", "<c-up>", [[<cmd>horizontal resize +2<cr>]], { desc = "+ resize horizontally" }) -- make the window bigger horizontally by pressing shift and =
+vim.keymap.set("n", "<c-down>", [[<cmd>horizontal resize -2<cr>]], { desc = "- resize horizontally" }) -- make the window smaller horizontally
 
 -- buffer navigation
-vim.keymap.set("n", "<c-n>", vim.cmd.bNext)
-vim.keymap.set("n", "<c-p>", vim.cmd.bprevious)
-vim.keymap.set("n", "<c-x>", vim.cmd.bdelete)
+vim.keymap.set("n", "<c-n>", vim.cmd.bNext, { desc = "Next Window" })
+vim.keymap.set("n", "<c-p>", vim.cmd.bprevious, { desc = "Previous Window" })
+vim.keymap.set("n", "<c-x>", vim.cmd.bdelete, { desc = "Close Window" })
 
 -- cursor
 vim.keymap.set("n", "J", "mzJ`z")
