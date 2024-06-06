@@ -49,7 +49,7 @@ return {
 			dashboard.button("s", " Save Session", "<cmd>SessionSave<cr>"),
 			dashboard.button("f", "󰈞 Find file", "<cmd>Telescope find_files<CR>"),
 			dashboard.button("t", " Find text", "<cmd>Telescope live_grep<CR>"),
-			-- dashboard.button('p', ""),
+			dashboard.button("g", " Git status", "<cmd>Neotree git_status <CR>"),
 			dashboard.button("n", " New file", ":ene <BAR> startinsert <CR>"),
 			dashboard.button("o", " Recently opened files", "<cmd>Telescope oldfiles<CR>"),
 			dashboard.button("u", "󰚰 Update Plugins", "<cmd>Lazy sync<CR>"),
@@ -57,7 +57,7 @@ return {
 		}
 
 		dashboard.section.header.val = name
-		dashboard.section.footer.val = " Antonio Tavares"
+		dashboard.section.footer.val = "󰯆 Antonio Tavares 󰯆"
 
 		alpha.setup(dashboard.opts)
 	end,
