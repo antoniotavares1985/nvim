@@ -30,10 +30,8 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
-vim.keymap.set("n", "<c-h>", "35h")
 vim.keymap.set("n", "<c-j>", "15j")
 vim.keymap.set("n", "<c-k>", "15k")
-vim.keymap.set("n", "<c-l>", "35l")
 
 -- clipboard
 vim.keymap.set("x", "<leader>bp", '"_dP')
