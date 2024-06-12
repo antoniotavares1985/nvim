@@ -56,24 +56,13 @@ return {
 			end,
 			desc = "[G]it [B]ranches",
 		},
-
         {
-			"<leader>gS",
+			"<leader>gd",
 			mode = { "n", "x", "o" },
 			function()
 				require("telescope.builtin").git_status()
 			end,
-			desc = "[G]it [S]tatus",
-		},
-
-        -- lsp related
-        {
-			"<leader>sr",
-			mode = { "n", "x", "o" },
-			function()
-				require("telescope.builtin").lsp_references()
-			end,
-			desc = "[S]earch [R]eferences",
+			desc = "[G]it [D]iff",
 		},
 
 	},
