@@ -25,19 +25,19 @@ return {
 
 					-- Jump to the definition of the word under your cursor.
 					--  To jump back, press <C-t>.
-					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+					map("sd", require("telescope.builtin").lsp_definitions, "[S]earch [D]efinition")
 
 					-- Find references for the word under your cursor.
-					map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+					map("sr", require("telescope.builtin").lsp_references, "[S]earch [R]eferences")
 
 					-- Jump to the implementation of the word under your cursor.
-					map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+					map("sI", require("telescope.builtin").lsp_implementations, "[S]earch [I]mplementation")
 
 					-- Jump to the type of the word under your cursor.
-					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+					map("st", require("telescope.builtin").lsp_type_definitions, "[S]earch [T]ype Definition")
 
 					-- Fuzzy find all the symbols in your current document.
-					map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+					map("ss", require("telescope.builtin").lsp_document_symbols, "[S]earch Document [S]ymbols")
 
 					-- Fuzzy find all the symbols in your current workspace.
 					map(
@@ -64,8 +64,7 @@ return {
 					-- When you move your cursor, the highlights will be cleared (the second autocommand).
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
 					if client and client.server_capabilities.documentHighlightProvider then
-						local highlight_augroup =
-							vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+						local highlight_augroup = vim.api.nvim_create_augroup("on-lsp-highlight", { clear = false })
 						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 							buffer = event.buf,
 							group = highlight_augroup,
@@ -79,10 +78,10 @@ return {
 						})
 
 						vim.api.nvim_create_autocmd("LspDetach", {
-							group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
+							group = vim.api.nvim_create_augroup("on-lsp-detach", { clear = true }),
 							callback = function(event2)
 								vim.lsp.buf.clear_references()
-								vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
+								vim.api.nvim_clear_autocmds({ group = "on-lsp-highlight", buffer = event2.buf })
 							end,
 						})
 					end
@@ -120,7 +119,7 @@ return {
 				--
 				-- But for many setups, the LSP (`tsserver`) will work just fine
 				tsserver = {},
-                csharp_ls = {},
+				csharp_ls = {},
 
 				lua_ls = {
 					-- cmd = {...},

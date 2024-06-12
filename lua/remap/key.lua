@@ -78,8 +78,8 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
-vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
-vim.keymap.set("n", "<leader>dq", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, { desc = "Show [D]iagnostic [E]rror messages" })
+vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Open [D]iagnostic Quickfix [L]ist" })
 
 -- Terminal mode quick
 vim.keymap.set("t", "<leader><esc>", "<c-\\><c-n>", { desc = "Exit terminal mode" })
@@ -89,3 +89,6 @@ vim.keymap.set("x", "<leader>term", "<cmd>terminal<cr>", { desc = "Open terminal
 
 -- Alpha
 vim.keymap.set("n", "Q", ":Alpha<CR>", { desc = "Toggle Alpha", silent = true })
+
+-- Awesome shortcuts
+vim.keymap.set({ "n", "i", "v", "x" }, "<c-space>", "<c-x><c-f>", { desc = " Builtin Auto Complete" })
