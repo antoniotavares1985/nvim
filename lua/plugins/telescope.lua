@@ -1,10 +1,10 @@
 return {
-        "nvim-telescope/telescope.nvim",
-        tag = "0.1.6",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-    	keys = {
+	"nvim-telescope/telescope.nvim",
+	tag = "0.1.6",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+	},
+	keys = {
 		{
 			"<leader>ff",
 			mode = { "n", "x", "o" },
@@ -29,7 +29,6 @@ return {
 			end,
 			desc = "[F]ind [B]uffers",
 		},
-
 		{
 			"<leader>ts",
 			mode = { "n", "x", "o" },
@@ -38,7 +37,7 @@ return {
 			end,
 			desc = "[T]ree[S]itter",
 		},
-        {
+		{
 			"<leader>bs",
 			mode = { "n", "x", "o" },
 			function()
@@ -47,7 +46,25 @@ return {
 			desc = "[B]uffer [S]earch",
 		},
 
-        -- git
+		-- LSP
+		{
+			"gi",
+			mode = { "n", "v", "x", "o" },
+			function()
+				require("telescope.builtin").lsp_implementations()
+			end,
+			desc = "[G]oto [I]mplementation",
+		},
+		{
+			"<leader>gl",
+			mode = { "n", "x", "o" },
+			function()
+				require("telescope.builtin").diagnostics()
+			end,
+			desc = "[S]earch [D]iagnostics",
+		},
+
+		-- git
 		{
 			"<leader>gb",
 			mode = { "n", "x", "o" },
@@ -56,7 +73,7 @@ return {
 			end,
 			desc = "[G]it [B]ranches",
 		},
-        {
+		{
 			"<leader>gd",
 			mode = { "n", "x", "o" },
 			function()
@@ -64,6 +81,5 @@ return {
 			end,
 			desc = "[G]it [D]iff",
 		},
-
 	},
 }
