@@ -17,11 +17,13 @@ return {
 		},
 		config = function()
 			vim.api.nvim_create_autocmd("LspAttach", {
-				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
+				group = vim.api.nvim_create_augroup("on-lsp-attach", { clear = true }),
 				callback = function(event)
 					local map = function(keys, func, desc)
 						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
+
+					local telescope_builtin = require("telescope.builtin")
 
 					-- Jump to the definition of the word under your cursor.
 					--  To jump back, press <C-t>.
@@ -40,11 +42,7 @@ return {
 					map("ss", require("telescope.builtin").lsp_document_symbols, "[S]earch Document [S]ymbols")
 
 					-- Fuzzy find all the symbols in your current workspace.
-					map(
-						"<leader>ws",
-						require("telescope.builtin").lsp_dynamic_workspace_symbols,
-						"[W]orkspace [S]ymbols"
-					)
+					map("<leader>ws", telescope_builtin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
 					-- Rename the variable under your cursor.
 					map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
@@ -53,13 +51,12 @@ return {
 					-- or a suggestion from your LSP for this to activate.
 					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
+					-- WARN: This is not Goto Definition, this is Goto Declaration.
+					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+
 					-- Opens a popup that displays documentation about the word under your cursor
 					--  See `:help K` for why this keymap.
-					map("K", vim.lsp.buf.hover, "Hover Documentation")
-
-					-- WARN: This is not Goto Definition, this is Goto Declaration.
-					--  For example, in C this would take you to the header.
-					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+					vim.keymap.set({ "n", "i", "s" }, "<c-i>", vim.lsp.buf.hover, { desc = "[I]nspect Documentation" })
 
 					-- When you move your cursor, the highlights will be cleared (the second autocommand).
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
@@ -88,9 +85,9 @@ return {
 
 					-- The following autocommand is used to enable inlay hints in your
 					if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-						map("<leader>th", function()
+						map("<c-space>", function()
 							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-						end, "[T]oggle Inlay [H]ints")
+						end, "Toggle Inlay Hints")
 					end
 				end,
 			})
@@ -277,6 +274,7 @@ return {
 					-- If you prefer more traditional completion keymaps,
 					-- you can uncomment the following lines
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<Tab>"] = cmp.mapping.confirm({ select = true }),
 					--['<Tab>'] = cmp.mapping.select_next_item(),
 					--['<S-Tab>'] = cmp.mapping.select_prev_item(),
 

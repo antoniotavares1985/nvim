@@ -17,6 +17,7 @@ vim.keymap.set("n", "<c-right>", "<cmd>vertical resize +5<cr>", { desc = "+ resi
 vim.keymap.set("n", "<c-left>", "<cmd>vertical resize -5<cr>", { desc = "- resize vertically" }) -- make the window smaller vertically
 vim.keymap.set("n", "<c-up>", "<cmd>horizontal resize +2<cr>", { desc = "+ resize horizontally" }) -- make the window bigger horizontally by pressing shift and =
 vim.keymap.set("n", "<c-down>", "<cmd>horizontal resize -2<cr>", { desc = "- resize horizontally" }) -- make the window smaller horizontally
+vim.keymap.set("n", "<leader>wvert", "<c-w>t<c-w>H", { desc = "move current window to vertical split" }) -- make the window smaller horizontally
 
 -- buffer navigation
 vim.keymap.set("n", "<c-n>", vim.cmd.bNext, { desc = "[N]ext Window" })
@@ -30,10 +31,8 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
-vim.keymap.set("n", "<c-h>", "35h")
 vim.keymap.set("n", "<c-j>", "15j")
 vim.keymap.set("n", "<c-k>", "15k")
-vim.keymap.set("n", "<c-l>", "35l")
 
 -- clipboard
 vim.keymap.set("x", "<leader>bp", '"_dP')
@@ -44,9 +43,10 @@ vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
 vim.keymap.set("v", "<leader>Y", '"+Y')
-
-vim.keymap.set("n", "<leader>d", '"+d')
-vim.keymap.set("v", "<leader>d", '"+d')
+vim.keymap.set("n", "<leader>p", '"+p')
+vim.keymap.set("v", "<leader>p", '"+p')
+vim.keymap.set("n", "<leader>P", '"+P')
+vim.keymap.set("v", "<leader>P", '"+P')
 
 -- options
 vim.opt.tabstop = 4
@@ -65,7 +65,7 @@ vim.opt.backup = false
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 15
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
@@ -82,7 +82,7 @@ vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, { desc = "Show [D]i
 vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Open [D]iagnostic Quickfix [L]ist" })
 
 -- Terminal mode quick
-vim.keymap.set("t", "<leader><esc>", "<c-\\><c-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("t", "<s-esc>", "<c-\\><c-n>", { desc = "Exit terminal mode" })
 vim.keymap.set("n", "<leader>term", "<cmd>terminal<cr>", { desc = "Open terminal mode" })
 vim.keymap.set("v", "<leader>term", "<cmd>terminal<cr>", { desc = "Open terminal mode" })
 vim.keymap.set("x", "<leader>term", "<cmd>terminal<cr>", { desc = "Open terminal mode" })
