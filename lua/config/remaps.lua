@@ -6,6 +6,7 @@ vim.wo.relativenumber = true
 -- set commands for plugin toggle
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { desc = "[E]xplorer" })
 vim.keymap.set("n", "<leader>pm", vim.cmd.Lazy, { desc = "[P]ackage [M]anager" })
+vim.keymap.set("n", "<leader>as", vim.cmd.SessionSave, { desc = "[A]dd [S]ession" })
 
 -- window navigation
 vim.keymap.set("n", "<leader><left>", "<c-w>h", { desc = "Move to Left Window" })
