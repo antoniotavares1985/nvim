@@ -44,7 +44,7 @@ return {
 		local dashboard = require("alpha.themes.dashboard")
 
 		dashboard.section.buttons.val = {
-			dashboard.button("r", "󱀸 Restore Last sessions", "<c-s>"),
+			dashboard.button("r", "󱀸 Restore sessions", "<cmd>Telescope session-lens<cr>"),
 			dashboard.button("s", " Save Session", "<cmd>SessionSave<cr>"),
 			dashboard.button("f", "󰈞 Find file", "<cmd>Telescope find_files<CR>"),
 			dashboard.button("t", " Find text", "<cmd>Telescope live_grep<CR>"),
