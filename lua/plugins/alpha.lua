@@ -34,8 +34,7 @@ local name = {
 
 return {
 	"goolord/alpha-nvim",
-	-- event = "VeryLazy",
-	-- lazy = true,
+	event = "VeryLazy",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 		"rmagatti/auto-session",
@@ -45,11 +44,11 @@ return {
 		local dashboard = require("alpha.themes.dashboard")
 
 		dashboard.section.buttons.val = {
-			dashboard.button("r", "󱀸 Restore session", "<cmd>SessionRestore<CR>"),
+			dashboard.button("r", "󱀸 Restore Last sessions", "<c-s>"),
 			dashboard.button("s", " Save Session", "<cmd>SessionSave<cr>"),
 			dashboard.button("f", "󰈞 Find file", "<cmd>Telescope find_files<CR>"),
 			dashboard.button("t", " Find text", "<cmd>Telescope live_grep<CR>"),
-			dashboard.button("g", " Git status", "<cmd>Neotree git_status <CR>"),
+			-- dashboard.button("g", " Git status", "<cmd>Neotree git_status <CR>"),
 			dashboard.button("n", " New file", ":ene <BAR> startinsert <CR>"),
 			dashboard.button("o", " Recently opened files", "<cmd>Telescope oldfiles<CR>"),
 			dashboard.button("u", "󰚰 Update Plugins", "<cmd>Lazy sync<CR>"),
