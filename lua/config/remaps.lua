@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.wo.number = true
 vim.wo.relativenumber = true
+vim.keymap.set({"n", "v", "t"}, "<c-c>", "<cmd>q<cr>")
 
 -- set commands for plugin toggle
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { desc = "[E]xplorer" })
@@ -80,13 +81,10 @@ vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, { desc = "Show [D]i
 vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Open [D]iagnostic Quickfix [L]ist" })
 
 -- Terminal mode quick
-vim.keymap.set("t", "<s-esc>", "<c-\\><c-n>", { desc = "Exit terminal mode" })
-vim.keymap.set("n", "<leader>term", "<cmd>terminal<cr>", { desc = "Open terminal mode" })
-vim.keymap.set("v", "<leader>term", "<cmd>terminal<cr>", { desc = "Open terminal mode" })
-vim.keymap.set("x", "<leader>term", "<cmd>terminal<cr>", { desc = "Open terminal mode" })
+vim.keymap.set({ "n", "v", "x" }, "<leader>term", "<cmd>terminal<cr>", { desc = "Open terminal mode" })
 
 -- Alpha
-vim.keymap.set("n", "Q", ":Alpha<CR>", { desc = "Toggle Alpha", silent = true })
+vim.keymap.set("n", "Q", "<cmd>Alpha<CR>", { desc = "Toggle Alpha", silent = true })
 
 -- Awesome shortcuts
 vim.keymap.set({ "n", "i", "v", "x" }, "<c-space>", "<c-x><c-f>", { desc = " Builtin Auto Complete" })
