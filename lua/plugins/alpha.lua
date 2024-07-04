@@ -34,7 +34,6 @@ local name = {
 
 return {
 	"goolord/alpha-nvim",
-	event = "VeryLazy",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 		"rmagatti/auto-session",
@@ -49,10 +48,10 @@ return {
 			dashboard.button("f", "󰈞 Find file", "<cmd>Telescope find_files<CR>"),
 			dashboard.button("t", " Find text", "<cmd>Telescope live_grep<CR>"),
 			-- dashboard.button("g", " Git status", "<cmd>Neotree git_status <CR>"),
-			dashboard.button("n", " New file", ":ene <BAR> startinsert <CR>"),
+			dashboard.button("n", " New file", "<cmd>ene <BAR> startinsert <CR>"),
 			dashboard.button("o", " Recently opened files", "<cmd>Telescope oldfiles<CR>"),
 			dashboard.button("u", "󰚰 Update Plugins", "<cmd>Lazy sync<CR>"),
-			dashboard.button("q", " Quit", ":qa<CR>"),
+			dashboard.button("q", " Quit", "<cmd>qa<CR>"),
 		}
 
 		dashboard.section.header.val = name

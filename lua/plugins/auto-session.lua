@@ -11,17 +11,17 @@ return {
             end
         },
     },
-    config = function()
-        require('auto-session').setup({
-            auto_session_suppress_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
-            log_level = "error",
-            auto_session_enable_last_session = false,
-            auto_save_enabled = true,
-            auto_restore_enabled = true,
-            session_lens = {
-                load_on_setup = true,
-                previewer = false,
-            },
-        })
-    end,
+   config = function()
+       require('auto-session').setup({
+           auto_session_suppress_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
+           log_level = "error",
+           auto_session_enable_last_session = false,
+           auto_save_enabled = false,
+           auto_restore_enabled = false,
+           session_lens = {
+               load_on_setup = true,
+               previewer = false,
+           },
+       })
+   end,
 }
