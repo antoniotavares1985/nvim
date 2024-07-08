@@ -6,6 +6,8 @@ return {
         'hrsh7th/cmp-path',
         'hrsh7th/cmp-cmdline',
         'hrsh7th/nvim-cmp',
+        'williamboman/mason.nvim', -- mason to search for lsp and such
+        'williamboman/mason-lspconfig.nvim',
     },
     config = function()
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -14,17 +16,33 @@ return {
             'omnisharp',
             'tsserver',
         }
+        local cmp = require('cmp')
 
-        local cmp = require'cmp'
+        -- setup mason
+        require("mason").setup({
+            ui = {
+                icons = {
+                    package_installed = "✓",
+                    package_pending = "➜",
+                    package_uninstalled = "✗"
+                }
+            }
+        })
 
+        -- setup mason lsp config
+        require("mason-lspconfig").setup({
+            ensure_installed = {
+                'lua_ls',
+                'omnisharp',
+                'tsserver',
+            },
+        })
+
+        -- setup cmp for autocompletion
         cmp.setup({
             snippet = {
                 -- REQUIRED - you must specify a snippet engine
                 expand = function(args)
-                    -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-                    -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-                    -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-                    -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
                     vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
                 end,
             },
@@ -41,15 +59,12 @@ return {
             }),
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
-                -- { name = 'vsnip' }, -- For vsnip users.
-                -- { name = 'luasnip' }, -- For luasnip users.
-                -- { name = 'ultisnips' }, -- For ultisnips users.
-                -- { name = 'snippy' }, -- For snippy users.
             }, {
                     { name = 'buffer' },
                 })
         })
 
+        -- setup language servers
         for _, v in ipairs(lsps) do
             require('lspconfig')[v].setup({
                 capabilities = capabilities
