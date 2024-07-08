@@ -5,14 +5,15 @@ return {
         "neovim/nvim-lspconfig"
     },
     config = function()
+        require("mason-lspconfig").setup({
+            ensure_installed = {
+                'lua_ls',
+                'omnisharp',
+                'tsserver',
+            },
+        })
+
         require("mason").setup({
-            require("mason-lspconfig").setup({
-                ensure_installed = {
-                    'lua_ls',
-                    'omnisharp',
-                    'tsserver',
-                },
-            }),
             ui = {
                 icons = {
                     package_installed = "✓",
