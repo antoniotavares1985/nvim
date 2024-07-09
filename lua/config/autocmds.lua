@@ -19,6 +19,7 @@ vim.api.nvim_create_autocmd("VimResized", {
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
+    group = augroup("lsp_hover"),
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client.server_capabilities.hoverProvider then
@@ -26,3 +27,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
     end,
 })
+
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = augroup("lsp_implementation"),
+    callback = function()
+        vim.keymap.set("n", "<leader>gI", vim.lsp.buf.implementation)
+    end,
+})
+
+-- how to call telescope to view references with auto command?
+-- vim.keymap.set("n", "<leader>fr", vim.lsp.buf.references)
