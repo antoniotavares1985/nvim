@@ -35,5 +35,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
--- how to call telescope to view references with auto command?
--- vim.keymap.set("n", "<leader>fr", vim.lsp.buf.references)
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = augroup("lsp_references"),
+    callback = function()
+        vim.keymap.set("n", "<leader>gr", require("telescope.builtin").lsp_references)
+    end,
+})
+
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = augroup("lsp_definition"),
+    callback = function()
+        vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
+    end,
+})

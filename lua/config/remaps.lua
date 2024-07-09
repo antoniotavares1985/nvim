@@ -88,7 +88,3 @@ vim.keymap.set("n", "Q", "<cmd>Alpha<CR>", { desc = "Toggle Alpha", silent = tru
 
 -- Awesome shortcuts
 vim.keymap.set({ "n", "i", "v", "x" }, "<c-space>", "<c-x><c-f>", { desc = " Builtin Auto Complete" })
-
--- vim lsp
--- vim.keymap.set("n", "<leader>gI", vim.lsp.buf.implementation(), { desc = "[G]oto [I]mplementation" })
--- vim.keymap.set("n", "<leader>fr", vim.lsp.buf.references(), { desc = "[G]oto [R]eferences" })
