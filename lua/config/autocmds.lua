@@ -19,32 +19,14 @@ vim.api.nvim_create_autocmd("VimResized", {
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
-    group = augroup("lsp_hover"),
+    group = augroup("lsp_native"),
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client.server_capabilities.hoverProvider then
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
         end
-    end,
-})
-
-vim.api.nvim_create_autocmd('LspAttach', {
-    group = augroup("lsp_implementation"),
-    callback = function()
         vim.keymap.set("n", "<leader>gI", vim.lsp.buf.implementation)
-    end,
-})
-
-vim.api.nvim_create_autocmd('LspAttach', {
-    group = augroup("lsp_references"),
-    callback = function()
-        vim.keymap.set("n", "<leader>gr", require("telescope.builtin").lsp_references)
-    end,
-})
-
-vim.api.nvim_create_autocmd('LspAttach', {
-    group = augroup("lsp_definition"),
-    callback = function()
         vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
     end,
 })
+
