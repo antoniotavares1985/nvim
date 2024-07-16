@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.wo.number = true
-vim.wo.relativenumber = true
+vim.wo.relativenumber = false
 vim.keymap.set({"n", "v", "t"}, "<c-c>", "<cmd>q<cr>")
 
 -- set commands for plugin toggle
