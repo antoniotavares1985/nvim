@@ -27,6 +27,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
         vim.keymap.set("n", "<leader>gI", vim.lsp.buf.implementation)
         vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
+        vim.keymap.set("n", "<leader>gr", function()
+            require("telescope.builtin").lsp_references()
+        end)
     end,
 })
 
