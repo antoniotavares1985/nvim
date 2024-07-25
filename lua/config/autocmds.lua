@@ -30,6 +30,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set("n", "<leader>gr", function()
             require("telescope.builtin").lsp_references()
         end)
+        vim.keymap.set("i", "<c-.>", vim.lsp.omnifunc)
     end,
 })
 
