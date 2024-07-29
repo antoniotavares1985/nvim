@@ -25,11 +25,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
         if client.server_capabilities.hoverProvider then
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
         end
-        vim.keymap.set("n", "<leader>gI", vim.lsp.buf.implementation)
-        vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
+        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { buffer = args.buf })
+        vim.keymap.set("n", "<leader>gI", vim.lsp.buf.implementation, { buffer = args.buf })
+        vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { buffer = args.buf })
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = args.buf })
         vim.keymap.set("n", "<leader>gr", function()
             require("telescope.builtin").lsp_references()
-        end)
+        end, { buffer = args.buf })
+        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { buffer = args.buf })
+        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, { buffer = args.buf })
     end,
 })
 
