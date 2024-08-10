@@ -18,6 +18,7 @@ vim.api.nvim_create_autocmd("VimResized", {
     end,
 })
 
+-- set keybindings for autocommands when lsp attaches
 vim.api.nvim_create_autocmd('LspAttach', {
     group = augroup("lsp_native"),
     callback = function(args)
