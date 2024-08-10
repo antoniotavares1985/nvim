@@ -66,11 +66,25 @@ return {
 
         -- setup language servers
         for _, v in ipairs(lsps) do
-            require('lspconfig')[v].setup({
-                capabilities = capabilities
-            })
+            if (v == 'lua_ls') then
+                require('lspconfig').lua_ls.setup({
+                    settings = {
+                        Lua = {
+                            diagnostics = {
+                                globals = {
+                                    'vim',
+                                    'love'
+                                }
+                            }
+                        }
+                    }
+                })
+            else
+                require('lspconfig')[v].setup({
+                    capabilities = capabilities
+                })
+            end
         end
-
     end
 }
 
