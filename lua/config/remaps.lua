@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.wo.number = true
 vim.wo.relativenumber = false
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 vim.keymap.set({"n", "v", "t"}, "<c-c>", "<cmd>q<cr>")
 
 -- set commands for plugin toggle
@@ -59,7 +60,8 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
--- vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+
+vim.opt.undodir = (os.getenv("HOME") or os.getenv("USERPROFILE")) .. "/.vim/undodir"
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
