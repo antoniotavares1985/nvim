@@ -14,7 +14,7 @@ return {
         local lsps = {
             'lua_ls',
             'omnisharp',
-            'tsserver',
+            'ts_ls',
         }
         local cmp = require('cmp')
 
