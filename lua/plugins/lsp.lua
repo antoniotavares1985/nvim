@@ -14,7 +14,8 @@ return {
         local lsps = {
             'lua_ls',
             'omnisharp',
-            'ts_ls',
+            'tsserver',
+            'clangd',
         }
         local cmp = require('cmp')
 
@@ -77,7 +78,7 @@ return {
                                 }
                             }
                         }
-                    }
+                    }, capabilities = capabilities
                 })
             else
                 require('lspconfig')[v].setup({
