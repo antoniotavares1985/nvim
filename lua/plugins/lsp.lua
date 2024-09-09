@@ -14,7 +14,7 @@ return {
         local lsps = {
             'lua_ls',
             'omnisharp',
-            'tsserver',
+            'ts_ls',
             'clangd',
         }
         local cmp = require('cmp')
@@ -35,7 +35,7 @@ return {
             ensure_installed = {
                 'lua_ls',
                 'omnisharp',
-                'tsserver',
+                'ts_ls',
             },
         })
 
