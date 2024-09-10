@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.wo.number = true
-vim.wo.relativenumber = false
+vim.wo.relativenumber = true
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 vim.keymap.set({"n", "v", "t"}, "<c-c>", "<cmd>q<cr>")
 
@@ -53,6 +53,8 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+
+vim.opt.splitright = true
 
 vim.opt.smartindent = true
 
