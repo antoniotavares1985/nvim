@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     group = augroup("lsp_native"),
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client.server_capabilities.hoverProvider then
+        if client ~= nil and client.server_capabilities.hoverProvider then
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
         end
         vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { buffer = args.buf })

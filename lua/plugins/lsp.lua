@@ -13,9 +13,7 @@ return {
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
         local lsps = {
             'lua_ls',
-            'omnisharp',
             'ts_ls',
-            'clangd',
         }
         local cmp = require('cmp')
 
@@ -32,11 +30,8 @@ return {
 
         -- setup mason lsp config
         require("mason-lspconfig").setup({
-            ensure_installed = {
-                'lua_ls',
-                'omnisharp',
-                'ts_ls',
-            },
+            ensure_installed = lsps,
+            automatic_installation = true,
         })
 
         -- setup cmp for autocompletion
@@ -74,7 +69,6 @@ return {
                             diagnostics = {
                                 globals = {
                                     'vim',
-                                    'love'
                                 }
                             }
                         }
