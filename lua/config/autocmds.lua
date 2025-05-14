@@ -18,24 +18,24 @@ vim.api.nvim_create_autocmd("VimResized", {
     end,
 })
 
--- set keybindings for autocommands when lsp attaches
-vim.api.nvim_create_autocmd('LspAttach', {
-    group = augroup("lsp_native"),
-    callback = function(args)
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client.server_capabilities.hoverProvider then
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
-        end
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { buffer = args.buf })
-        vim.keymap.set("n", "<leader>gI", vim.lsp.buf.implementation, { buffer = args.buf })
-        vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { buffer = args.buf })
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = args.buf })
-        vim.keymap.set("n", "<leader>gr", function()
-            require("telescope.builtin").lsp_references()
-        end, { buffer = args.buf })
-        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { buffer = args.buf })
-        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, { buffer = args.buf })
-        vim.keymap.set("i", "<c-.>", vim.lsp.omnifunc, { buffer = args.buf })
-    end,
-})
-
+-- -- set keybindings for autocommands when lsp attaches
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--     group = augroup("lsp_native"),
+--     callback = function(args)
+--         local client = vim.lsp.get_client_by_id(args.data.client_id)
+--         if client.server_capabilities.hoverProvider then
+--             vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
+--         end
+--         vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { buffer = args.buf })
+--         vim.keymap.set("n", "<leader>gI", vim.lsp.buf.implementation, { buffer = args.buf })
+--         vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { buffer = args.buf })
+--         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = args.buf })
+--         vim.keymap.set("n", "<leader>gr", function()
+--             require("telescope.builtin").lsp_references()
+--         end, { buffer = args.buf })
+--         vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { buffer = args.buf })
+--         vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, { buffer = args.buf })
+--         vim.keymap.set("i", "<c-.>", vim.lsp.omnifunc, { buffer = args.buf })
+--     end,
+-- })
+-- 
