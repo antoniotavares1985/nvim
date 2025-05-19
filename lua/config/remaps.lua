@@ -1,12 +1,15 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 vim.wo.number = true
 vim.wo.relativenumber = true
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+vim.o.completeopt = "menuone,noselect,popup"
+vim.keymap.set({"n", "v", "t"}, "<c-c>", "<cmd>q<cr>")
 
 -- set commands for plugin toggle
-vim.keymap.set("n", "<leader>e", "<cmd>Neotree filesystem toggle<cr>", { desc = "[E]xplorer" })
-vim.keymap.set("n", "<leader>gs", "<cmd>Neotree git_status toggle<cr>", { desc = "[G]it [S]tatus" })
-vim.keymap.set("n", "<leader>pm", vim.cmd.Lazy, { desc = "[P]ackage [M]anager" })
-vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = "[U]ndo[T]ree" })
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { desc = "[e]xplorer" })
+vim.keymap.set("n", "<leader>pm", vim.cmd.Lazy, { desc = "[p]ackage [m]anager" })
+vim.keymap.set("n", "<leader>as", vim.cmd.SessionSave, { desc = "[a]dd [s]ession" })
 
 -- window navigation
 vim.keymap.set("n", "<leader><left>", "<c-w>h", { desc = "Move to Left Window" })
@@ -20,8 +23,6 @@ vim.keymap.set("n", "<c-down>", "<cmd>horizontal resize -2<cr>", { desc = "- res
 vim.keymap.set("n", "<leader>wvert", "<c-w>t<c-w>H", { desc = "move current window to vertical split" }) -- make the window smaller horizontally
 
 -- buffer navigation
-vim.keymap.set("n", "<c-n>", vim.cmd.bNext, { desc = "[N]ext Window" })
-vim.keymap.set("n", "<c-p>", vim.cmd.bprevious, { desc = "[P]revious Window" })
 vim.keymap.set("n", "<c-x>", vim.cmd.bdelete, { desc = "Close Window" })
 vim.keymap.set("n", "<c-b>", vim.cmd.buffers, { desc = "Show currently opened [B]uffers" })
 
@@ -54,13 +55,16 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+vim.opt.splitright = true
+
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
--- vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+
+vim.opt.undodir = (os.getenv("HOME") or os.getenv("USERPROFILE")) .. "/.vim/undodir"
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -75,20 +79,30 @@ vim.opt.updatetime = 50
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+-- LSP keymaps
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "[K]" })
+vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = "[K] help" })
+vim.keymap.set("n", "<leader>gI", vim.lsp.buf.implementation, { desc = "[g]oto [I]mplementation" })
+vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "[g]oto [d]efinition" })
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "[g]oto [D]eclaration" })
+vim.keymap.set("n", "<leader>gr", function()
+    require("telescope.builtin").lsp_references()
+end, { desc = "[g]et [r]eferences" })
+vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { desc = "[r]e[n]ame" })
+vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, { desc = "[c]ode [a]ction" })
+vim.keymap.set("i", "<c-.>", vim.lsp.omnifunc, { desc = "auto-complete suggestions" })
+
 -- Diagnostic keymaps
-vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
-vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, { desc = "Show [D]iagnostic [E]rror messages" })
-vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Open [D]iagnostic Quickfix [L]ist" })
+vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, { desc = "Go to [d]iagnostic [p]revious message" })
+vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, { desc = "Go to [d]iagnostic [n]ext message" })
+vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, { desc = "Show [d]iagnostic [e]rror messages" })
+vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Open [d]iagnostic Quickfix [l]ist" })
 
 -- Terminal mode quick
-vim.keymap.set("t", "<s-esc>", "<c-\\><c-n>", { desc = "Exit terminal mode" })
-vim.keymap.set("n", "<leader>term", "<cmd>terminal<cr>", { desc = "Open terminal mode" })
-vim.keymap.set("v", "<leader>term", "<cmd>terminal<cr>", { desc = "Open terminal mode" })
-vim.keymap.set("x", "<leader>term", "<cmd>terminal<cr>", { desc = "Open terminal mode" })
+vim.keymap.set({ "n", "v", "x" }, "<leader>term", "<cmd>terminal<cr>", { desc = "Open terminal mode" })
 
 -- Alpha
-vim.keymap.set("n", "Q", ":Alpha<CR>", { desc = "Toggle Alpha", silent = true })
+vim.keymap.set("n", "Q", "<cmd>Alpha<CR>", { desc = "Toggle Alpha", silent = true })
 
 -- Awesome shortcuts
 vim.keymap.set({ "n", "i", "v", "x" }, "<c-space>", "<c-x><c-f>", { desc = " Builtin Auto Complete" })
