@@ -6,11 +6,11 @@ return {
         "neovim/nvim-lspconfig",
     },
     config = function()
---         local lsps = {
---             'lua_ls',
---             'omnisharp',
---             'eslint',
---         }
+        local lsps = {
+            'lua_ls',
+            'omnisharp',
+            'eslint',
+        }
 
         -- setup mason
         require("mason").setup({
@@ -24,10 +24,10 @@ return {
         })
 
         -- setup mason lsp config
---         require("mason-lspconfig").setup({
---             ensure_installed = lsps,
---             automatic_enable = lsps,
---         })
+        require("mason-lspconfig").setup({
+            ensure_installed = lsps,
+            automatic_enable = lsps,
+        })
 
     end
 }
