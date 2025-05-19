@@ -3,6 +3,7 @@ local lsp = vim.lsp
 
 return {
   cmd = { 'vscode-eslint-language-server', '--stdio' },
+  capabilities = require('blink.cmp').get_lsp_capabilities(),
   filetypes = {
     'javascript',
     'javascriptreact',

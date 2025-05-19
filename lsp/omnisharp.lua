@@ -12,11 +12,7 @@ return {
   filetypes = { 'cs', 'vb' },
   root_markers = { '.sln', '.csproj', 'omnisharp.json', 'function.json' },
   init_options = {},
-  capabilities = {
-    workspace = {
-      workspaceFolders = false, -- https://github.com/OmniSharp/omnisharp-roslyn/issues/909
-    },
-  },
+  capabilities = require('blink.cmp').get_lsp_capabilities(),
   settings = {
     FormattingOptions = {
       -- Enables support for reading code style, naming convention and analyzer
@@ -49,7 +45,7 @@ return {
       -- true
       AnalyzeOpenDocumentsOnly = nil,
       -- Enables the possibility to see the code in external nuget dependencies
-      EnableDecompilationSupport = nil,
+      EnableDecompilationSupport = true,
     },
     RenameOptions = {
       RenameInComments = nil,

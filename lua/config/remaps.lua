@@ -3,6 +3,7 @@ vim.g.maplocalleader = "\\"
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+vim.o.completeopt = "menuone,noselect,popup"
 vim.keymap.set({"n", "v", "t"}, "<c-c>", "<cmd>q<cr>")
 
 -- set commands for plugin toggle
