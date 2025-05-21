@@ -26,7 +26,6 @@ return {
         -- setup mason lsp config
         require("mason-lspconfig").setup({
             ensure_installed = lsps,
-            automatic_enable = lsps,
         })
 
     end

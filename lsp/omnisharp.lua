@@ -11,6 +11,7 @@ return {
   },
   filetypes = { 'cs', 'vb' },
   root_markers = { '.sln', '.csproj', 'omnisharp.json', 'function.json' },
+  root_directory = { './*.sln', './*.csproj', 'omnisharp.json', 'function.json' },
   init_options = {},
   capabilities = require('blink.cmp').get_lsp_capabilities(),
   settings = {
