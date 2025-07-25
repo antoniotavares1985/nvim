@@ -1,10 +1,32 @@
+local statusLine = {
+    ' ascii:',
+    '%b' ,
+    'hex:',
+    '0x%B',
+    'row:',
+    '%l',
+    'col:',
+    '%c',
+
+    'filename:',
+    '%t',
+    '%r',
+    '%m',
+    '%=',
+    'filetype:',
+    '%{&filetype}',
+    ' %2p%%',
+    ' %3l:%-2c '
+}
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.wo.number = true
-vim.wo.relativenumber = true
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+-- vim.wo.relativenumber = true
+vim.o.statusline = table.concat(statusLine, ' ')
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 vim.o.completeopt = "menuone,noselect,popup"
 vim.o.ignorecase = true
+vim.o.smartcase = true
 vim.o.undofile = true
 vim.keymap.set({"n", "v", "t"}, "<c-c>", "<cmd>q<cr>")
 
@@ -82,17 +104,17 @@ vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- LSP keymaps
-vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "[K]" })
-vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = "[K] help" })
-vim.keymap.set("n", "<leader>gI", vim.lsp.buf.implementation, { desc = "[g]oto [I]mplementation" })
-vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "[g]oto [d]efinition" })
-vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "[g]oto [D]eclaration" })
-vim.keymap.set("n", "<leader>gr", function()
-    require("telescope.builtin").lsp_references()
-end, { desc = "[g]et [r]eferences" })
-vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { desc = "[r]e[n]ame" })
-vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, { desc = "[c]ode [a]ction" })
-vim.keymap.set("i", "<c-.>", vim.lsp.omnifunc, { desc = "auto-complete suggestions" })
+-- vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "[K]" })
+-- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = "[K] help" })
+-- vim.keymap.set("n", "<leader>gI", vim.lsp.buf.implementation, { desc = "[g]oto [I]mplementation" })
+-- vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "[g]oto [d]efinition" })
+-- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "[g]oto [D]eclaration" })
+-- vim.keymap.set("n", "<leader>gr", function()
+--     require("telescope.builtin").lsp_references()
+-- end, { desc = "[g]et [r]eferences" })
+-- vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { desc = "[r]e[n]ame" })
+-- vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, { desc = "[c]ode [a]ction" })
+-- vim.keymap.set("i", "<c-.>", vim.lsp.omnifunc, { desc = "auto-complete suggestions" })
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, { desc = "Go to [d]iagnostic [p]revious message" })

@@ -1,16 +1,13 @@
 return {
 -- mason to search for lsp and such
-    "mason-org/mason.nvim",
+    "mason-org/mason-lspconfig.nvim",
     dependencies = {
-        "mason-org/mason-lspconfig.nvim",
+        "mason-org/mason.nvim",
         "neovim/nvim-lspconfig",
     },
     config = function()
-        local lsps = {
-            'lua_ls',
-            'omnisharp',
-            'eslint',
-        }
+        -- setup mason lsp config
+        require("mason-lspconfig").setup()
 
         -- setup mason
         require("mason").setup({
@@ -22,12 +19,6 @@ return {
                 }
             }
         })
-
-        -- setup mason lsp config
-        require("mason-lspconfig").setup({
-            ensure_installed = lsps,
-        })
-
     end
 }
 
