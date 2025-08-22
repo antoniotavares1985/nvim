@@ -3,6 +3,7 @@ return {
 	tag = '0.1.8',
 	dependencies = {
 		'nvim-lua/plenary.nvim',
+        'nvim-treesitter/nvim-treesitter'
 	},
 	keys = {
 		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "[F]ind [F]iles" },
