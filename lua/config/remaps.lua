@@ -21,6 +21,7 @@ local statusLine = {
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.wo.number = true
+vim.o.mouse = ""
 -- vim.wo.relativenumber = true
 vim.o.statusline = table.concat(statusLine, ' ')
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
